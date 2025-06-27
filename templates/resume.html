@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="text-center py-5">
+            <h1>My Resume</h1>
+            <p>Welcome to my online resume. Here you can learn more about my skills, experience, and projects.</p>
+        </header>
+
+        <section class="py-4">
+            <h2>Skills</h2>
+            <ul>
+                {% for skill in skills %}
+                    <li><strong>{{ skill.name }}</strong>: {{ skill.description }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="py-4">
+            <h2>Experience</h2>
+            <ul>
+                {% for experience in experiences %}
+                    <li>
+                        <strong>{{ experience.title }}</strong> at {{ experience.company }} 
+                        ({{ experience.start_date }} - {{ experience.end_date }})
+                        <p>{{ experience.description }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="py-4">
+            <h2>Projects</h2>
+            <ul>
+                {% for project in projects %}
+                    <li>
+                        <strong>{{ project.title }}</strong>: 
+                        <a href="{{ project.url }}" target="_blank">View Project</a>
+                        <p>{{ project.description }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
